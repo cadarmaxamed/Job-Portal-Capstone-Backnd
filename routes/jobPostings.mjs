@@ -38,8 +38,11 @@ router.patch('/:id', async (req, res)=>{
             req.params.id,
             req.body,
             { new: true }
+        
         );
-    } catch (error) {
+        res.send(updatedJobPosting)
+    } 
+    catch (error) {
         console.error(error)
         res.status(500).json({msg: "Server Error"})
     }
