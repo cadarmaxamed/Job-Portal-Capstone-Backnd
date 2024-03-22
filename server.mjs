@@ -7,6 +7,8 @@ import { MongoClient } from 'mongodb';
 import jobPostings from './routes/jobPostings.mjs';
 import jobTypes from './routes/jobTypes.mjs';
 
+//importing schemas
+
 //configurations
 dotenv.config()
 const app = express()
@@ -19,6 +21,10 @@ app.use(express.json())
 app.get('/', (req, res)=>{
     res.send(`Tech Jobs For YOU!`)
 })
+
+//use routes
+app.use('/JobPostings', jobPostings);
+app.use('/JobTypes', jobTypes);
 
 
 // Global error handling
