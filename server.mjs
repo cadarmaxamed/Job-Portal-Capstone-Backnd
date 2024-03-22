@@ -33,7 +33,9 @@ app.use('/JobTypes', jobTypes);
 app.use((err, _req, res, next) => {
     res.status(500).send("Seems like we messed up somewhere...");
   });
-  
+
+//listen for server
 app.listen(PORT, ()=>{
     console.log(`Server running on port: ${PORT}`)
-})
+});
+

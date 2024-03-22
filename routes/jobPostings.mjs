@@ -1,6 +1,7 @@
 import express from 'express';
 import JobPostings from '../models/jobPostings.mjs';
 
+
 const router = express.Router();
 
 //seed routes
@@ -19,7 +20,7 @@ router.post('/', async (req, res)=>{
 })
 
 
-//read route
+//read all route
 router.get('/', async (req, res)=>{
     try {
         const allJobPostings = await JobPostings.find({});
@@ -33,7 +34,11 @@ router.get('/', async (req, res)=>{
 //update route
 router.patch('/:id', async (req, res)=>{
     try {
-        
+        const updatedJobPosting = await JobPostings.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true }
+        );
     } catch (error) {
         console.error(error)
         res.status(500).json({msg: "Server Error"})
@@ -43,6 +48,8 @@ router.patch('/:id', async (req, res)=>{
 //delete route
 router.delete('/:id', async (req, res)=>{
     try {
+        await JobPostings.findByIdAndDelete(req.params.id);
+        res.status(200).json({ msg: 'Job Posting Deleted'})
         
     } catch (error) {
         console.error(error)
