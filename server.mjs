@@ -4,7 +4,8 @@ import mongoose from 'mongoose'
 import { MongoClient } from 'mongodb';
 
 //import routes
-
+import jobPostings from './routes/jobPostings.mjs';
+import jobTypes from './routes/jobTypes.mjs';
 
 //configurations
 dotenv.config()
