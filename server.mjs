@@ -1,18 +1,20 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
-import { MongoClient } from 'mongodb';
+
+import ConnectDB from './db/conn.mjs';
 
 //import routes
 import jobPostings from './routes/jobPostings.mjs';
 import jobTypes from './routes/jobTypes.mjs';
 
-//importing schemas
+//importing schemas not needed
 
 //configurations
 dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 3000
+ConnectDB();
 
 //Middleware
 app.use(express.json())

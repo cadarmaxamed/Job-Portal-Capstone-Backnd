@@ -2,10 +2,6 @@ import mongoose from 'mongoose';
 
 // Defined jobTypes schema
 const jobTypesSchema = new mongoose.Schema({
-  _id: {
-    type: String,
-    required: true,
-  },
   position: {
     type: String,
     required: true,

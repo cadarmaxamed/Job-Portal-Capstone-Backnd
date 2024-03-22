@@ -1,19 +1,25 @@
-import { MongoClient } from 'mongodb';
+import mongoose from 'mongoose';
 import dotenv from "dotenv";
+
 dotenv.config();
 
 const connectionString = process.env.MONGO_URI || '';
+const ConnectDB = async() =>{
+    try {
+        await mongoose.connect(connectionString, {
+            useNewUrlParser: true 
+        }) 
+        console.log("MongoDB Connected")
 
-const client = new MongoClient(connectionString)
-
-let conn;
-
-try {
-    conn = await client.connect()
-} catch (e) {
-    console.error(e)
+    } catch (error) {
+        console.error(error)
+        process.exit(1)
+    }
 }
 
-let db = conn.db("job-portal");
 
-export default db;
+
+
+
+
+export default ConnectDB;
