@@ -1,6 +1,4 @@
 import express from 'express';
-import db from '../db/conn.mjs';
-import { ObjectId } from 'mongodb';
 import JobPostings from '../models/jobPostings.mjs';
 
 const router = express.Router();
