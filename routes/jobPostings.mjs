@@ -4,14 +4,14 @@ import { ObjectId } from 'mongodb';
 
 const router = express.Router();
 
-// Get all East African countries (checked)
+// Get all job postings (checked)
 router.get('/', async (req, res) => {
   let collection = await db.collection('job_postings');
   let result = await collection.find({}).limit(10).toArray();
   res.send(result);
 });
 
-// Get a single East African country by ID (checked)
+// Get a single job posting by ID (checked)
 router.get('/:id', async (req, res) => {
   let collection = await db.collection('job_postings');
   let query = { _id: new ObjectId(req.params.id) };
@@ -21,7 +21,7 @@ router.get('/:id', async (req, res) => {
   else res.status(200).send(200);
 });
 
-// Create a new East African country (Checked!!!)
+// Create a new job posting (Checked!!!)
 router.post('/', async (req, res) => {
   let collection = await db.collection('job_postings');
   let newDocument = req.body;
@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
   res.status(201).send(result.ops[0]);
 });
 
-// Update an existing East African country by ID
+// Update an existing Job Posting by ID
 router.patch('/:id', async (req, res) => {
   let collection = await db.collection('job_postings');
   let query = { _id: new ObjectId(req.params.id) };
@@ -44,7 +44,7 @@ router.patch('/:id', async (req, res) => {
   else res.status(200).send('Updated successfully');
 });
 
-// Delete an East African country by ID
+// Delete a job posting by ID
 router.delete('/:id', async (req, res) => {
   let collection = await db.collection('job_postings');
   let query = { _id: Number(req.params.id) };
