@@ -1,7 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
-//import gradeRouter from './routes/grades.mjs'
+
 
 dotenv.config()
 const app = express()
@@ -14,7 +14,7 @@ app.use(express.json())
 app.get('/', (req, res)=>{
     res.send(`Tech Jobs For YOU!`)
 })
-//app.use('/grades', gradeRouter)
+
 
 // Global error handling
 app.use((err, _req, res, next) => {
