@@ -31,7 +31,7 @@ router.get('/', async (req, res)=>{
     }
 })
 
-//update route
+//update route by getting id
 router.patch('/:id', async (req, res)=>{
     try {
         const updatedJobPosting = await JobPostings.findByIdAndUpdate(
