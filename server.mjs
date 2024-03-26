@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
+import cors from 'cors';
 
 import ConnectDB from './db/conn.mjs';
 
@@ -14,6 +15,7 @@ import jobTypes from './routes/jobTypes.mjs';
 dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 3000
+//connection
 ConnectDB();
 
 //Middleware
