@@ -4,18 +4,19 @@ import JobTypes from '../models/jobTypes.mjs';
 const router = express.Router();
 
 
-//create route
-router.post('/', async (req, res)=>{
+
+// create route
+router.post('/', async (req, res) => {
     try {
-        let newJobType  = new JobTypes(req.body)
-        await newjobType.save()
-        res.json(newJobType)
-        
+      let newJobType = new JobTypes(req.body);
+      await newJobType.save();
+      res.json(newJobType);
     } catch (error) {
-        console.error(error)
-        res.status(500).json({msg: "Server Error"})
+      console.error(error);
+      res.status(500).json({ msg: "Server Error" });
     }
-})
+  });
+  
 
 
 //read route

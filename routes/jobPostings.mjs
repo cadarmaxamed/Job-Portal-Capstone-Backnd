@@ -6,18 +6,18 @@ const router = express.Router();
 
 //seed routes
 
-//create route
-router.post('/', async (req, res)=>{
+// create route
+router.post('/', async (req, res) => {
     try {
-        let newJobPosting  = new JobPostings(req.body)
-        await newJobPosting.save()
-        res.json(newJobPosting)
-        
+      let newJobPosting = new JobPostings(req.body);
+      await newJobPosting.save();
+      res.json(newJobPosting);
     } catch (error) {
-        console.error(error)
-        res.status(500).json({msg: "Server Error"})
+      console.error(error);
+      res.status(500).json({ msg: "Server Error" });
     }
-})
+  });
+  
 
 
 //read all route
