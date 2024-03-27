@@ -22,7 +22,6 @@ const jobPostingsController = {
     }
   },
 
-  // Implement other controller functions for job postings CRUD operations similarly
 };
 
 export default jobPostingsController;

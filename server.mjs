@@ -7,7 +7,7 @@ import ConnectDB from './config/conn.mjs';
 
 // Import routes
 import jobPostings from './routes/jobPostings.mjs';
-import jobTypes from './routes/jobTypes.mjs';
+//import jobTypes from './routes/jobTypes.mjs';
 
 // Configuration
 dotenv.config();
@@ -31,7 +31,7 @@ app.get('/', (_req, res) => {
 
 // Use routes
 app.use('/JobPostings', jobPostings);
-app.use('/JobTypes', jobTypes);
+//app.use('/JobTypes', jobTypes);
 
 // Global error handling
 app.use((err, _req, res, next) => {
